@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			width: 100%;
+			height: 100%;
+		}
+		.container {
+			width: 40%;
+			margin: 50px auto 150px;
+			position: relative;
+			height: 100%;
+			background: #676c80;
+		}
+
+		/* container .inputWrapper {
+			top: -2px;
+			left: -115px;
+			text-align: right;
+		} */
+		.inputWrapper {
+			position: absolute;
+			width: 10%;
+			height: 50px;
+			text-align: right;
+			border: 1px solid;
+			align-items: center;
+			text-align: center;
+			justify-content: center;
+			display: flex;
+			border-radius: 5%;
+			font-size: large;
+		}
+		.input_tl {
+			top: -2px;
+			left: -85px;
+			text-align: right;
+		}
+		.input_tr {
+			top: -2px;
+			right: -85px;
+			text-align: left;
+		}
+
+		.input_bl {
+			bottom: -2px;
+			right: -85px;
+			text-align: left;
+		}
+
+		.input_br {
+			bottom: -2px;
+			left: -85px;
+		}
+		.box {
+			background: #e9eaee;
+			border: 2px solid #ffffff;
+			padding: 44px 40px 20px 40px;
+			margin: 0 auto;
+			text-align: center;
+			height: 150px;
+		}
+		input {
+			border: none;
+			text-align: center;
+			background: none;
+			outline: none;
+		}
+		input::after {
+			text-align: center;
+			background: none;
+			outline: none;
+		}
+		.title {
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding-top: 100px;
+		}
+	</style>
+	<body>
+		<h2 class="title">change border Radius</h2>
+		<div class="container">
+			<div class="input_tl inputWrapper">
+				<input id="input_tl" class="input" type="text" value="0" />
+			</div>
+			<div class="input_tr inputWrapper">
+				<input id="input_tr" class="input" type="text" value="0" />
+			</div>
+
+			<div class="input_br inputWrapper">
+				<input id="input_bl" class="input" type="text" value="0" />
+			</div>
+			<div class="input_bl inputWrapper">
+				<input id="input_br" class="input" type="text" value="0" />
+			</div>
+			<div class="box"></div>
+		</div>
+	</body>
+	<script>
+		const changeBorder = () => {
+			let borderTL = document.getElementById('input_tl');
+			let borderTR = document.getElementById('input_tr');
+			let borderBL = document.getElementById('input_bl');
+			let borderBR = document.getElementById('input_br');
+
+			let borderBox = document.querySelector('.box');
+
+			borderTL.addEventListener('input', ({ target }) => {
+				borderBox.style.borderTopLeftRadius = `${target.value}%`;
+			});
+			borderTR.addEventListener('input', ({ target }) => {
+				borderBox.style.borderTopRightRadius = `${target.value}%`;
+			});
+			borderBL.addEventListener('input', ({ target }) => {
+				borderBox.style.borderBottomLeftRadius = `${target.value}%`;
+			});
+			borderBR.addEventListener('input', ({ target }) => {
+				borderBox.style.borderBottomRightRadius = `${target.value}%`;
+			});
+
+			console.log(borderTL);
+		};
+
+		document.querySelector('.container').addEventListener('change', () => changeBorder());
+	</script>
+</html>
